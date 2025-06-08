@@ -24,3 +24,29 @@ Desenvolvido em Java com a biblioteca Swing para a interface gráfica, o sistema
 > - ```br.edu.cs.poo.ac.seguro.telas```: Contém as classes da interface gráfica do usuário (GUI), desenvolvidas com a biblioteca Swing. Exemplos são ```TelaSeguradoPessoa```, ```TelaInclusaoApolice``` e ```TelaInclusaoSinistro```.
 > - ```br.edu.cs.poo.ac.seguro.excecoes```: Define exceções personalizadas, como ```ExcecaoValidacaoDados```, para um tratamento de erros mais robusto.
 > - ```br.edu.cs.poo.ac.seguro.testes```: Contém testes unitários e de integração utilizando JUnit para garantir a qualidade e o correto funcionamento das regras de negócio e da persistência de dados.
+
+## Regras de Negócio Implementadas
+> O projeto implementa regras de negócio específicas, cuja lógica pode ser observada principalmente nas classes "Mediator".
+> ### Criação de Apólice (```ApoliceMediator```)
+> > - Número da Apólice: O número é gerado concatenando o ano atual, o CPF/CNPJ do segurado e a placa do veículo.
+> > - Cálculo do Prêmio: O valor do prêmio é calculado com base em 3% do valor máximo segurado. Há um acréscimo de 20% para veículos de locadoras. O bônus acumulado pelo segurado é subtraído para gerar o valor final.
+> > - Cálculo da Franquia: Corresponde a 130% do valor do prêmio antes da aplicação do bônus.
+> > - Bonificação: Ao final da inclusão de uma apólice, o sistema verifica se o segurado teve algum sinistro no ano anterior. Se não houver, um bônus de 30% sobre o valor do prêmio é creditado ao segurado.
+> ### Inclusão de Sinistro (```SinistroMediator```)
+> > - Validação: Um sinistro só pode ser registrado se houver uma apólice vigente (com menos de um ano de emissão) para o veículo na data da ocorrência.
+> > - Limite de Valor: O valor do sinistro não pode exceder o valor máximo segurado definido na apólice.
+> > - Número do Sinistro: É gerado com o prefixo "S", seguido pelo número da apólice e um sequencial de 3 dígitos, que é incrementado a cada novo sinistro para a mesma apólice.
+
+## Como Executar
+> Cada classe no pacote ```br.edu.cs.poo.ac.seguro.telas``` possui um método ```main```, permitindo que cada tela seja executada de forma independente.
+> Para executar o cadastro de um segurado pessoa física:
+> - `br.edu.cs.poo.ac.seguro.telas.TelaSeguradoPessoa`
+> Para executar a inclusão de uma apólice:
+> - `br.edu.cs.poo.ac.seguro.telas.TelaInclusaoApolice`
+
+## Dependências
+- Java SE: Linguagem de programação principal.
+- Swing: Para a construção da interface gráfica.
+- JUnit 5: Para a execução dos testes automatizados.
+- Lombok: Utilizado para reduzir código boilerplate nas classes de entidade (via anotações como `@Getter`, `@Setter`).
+- CadastroObjetos: Biblioteca externa para lidar com a persistência de objetos em arquivos.
