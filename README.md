@@ -39,10 +39,10 @@ Desenvolvido em Java com a biblioteca Swing para a interface gráfica, o sistema
 
 ## Como Executar
 > Cada classe no pacote ```br.edu.cs.poo.ac.seguro.telas``` possui um método ```main```, permitindo que cada tela seja executada de forma independente.
-> Para executar o cadastro de um segurado pessoa física:
-> - `br.edu.cs.poo.ac.seguro.telas.TelaSeguradoPessoa`
-> Para executar a inclusão de uma apólice:
-> - `br.edu.cs.poo.ac.seguro.telas.TelaInclusaoApolice`
+Para executar o cadastro de um segurado pessoa física:
+- `br.edu.cs.poo.ac.seguro.telas.TelaSeguradoPessoa`
+Para executar a inclusão de uma apólice:
+- `br.edu.cs.poo.ac.seguro.telas.TelaInclusaoApolice`
 
 ## Dependências
 - Java SE: Linguagem de programação principal.
